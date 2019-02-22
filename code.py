@@ -3,7 +3,7 @@ import math
 
 # Auto-generated code below aims at helping you parse
 # the standard input according to the problem statement.
-
+ 
 # player_count: the amount of players (always 2)
 # my_id: my player ID (0 or 1)
 # zone_count: the amount of zones on the map
@@ -23,9 +23,9 @@ for i in range(link_count):
 
 # game loop
 mypod = [0 for i in range (zone_count)] # array berisi jumlah pod kita tiap zone
-while True:
 mapped = [ False for i in range (zone_count)] # daerah yang pernah dilewati kita
 mapped_plat = [ 0 for i in range (zone_count)]
+while True:
     my_platinum = int(input())  # your available Platinum
     for i in range(zone_count):
         # z_id: this zone's ID
@@ -41,10 +41,11 @@ mapped_plat = [ 0 for i in range (zone_count)]
         else :
             pod_p = pod_p1
 
+        mypod[zone_count] = pod_p
         if pod_p > 0 :
-            mypod[zone_count] = pod_p
             mapped[zone_count] = True
             mapped_plat[zone_count] = platinum
+
 
     # first line for movement commands, second line no longer used (see the protocol in the statement for details)
     print("WAIT")
