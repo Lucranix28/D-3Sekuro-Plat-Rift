@@ -52,10 +52,10 @@ while True:
             sekitar = zoneMap[i]
             for j in range (len(sekitar)) :
                 if ( not(mapped[j]) and len(sekitar) >= 1 ) :
-                    if ( len(sekitar) ==1 and mypod[i] <= 2):
+                    if ( mypod[i] == 1):
                         eksekusi += str(mypod[i])+" "+str(i)+" "+str(int(sekitar[j]))+" "
                     else :
-                        eksekusi += str(mypod[i]//len(sekitar))+" "+str(i)+" "+str(int(sekitar[j]))+" "
+                        eksekusi += str(mypod[i]//(len(sekitar)-1))+" "+str(i)+" "+str(int(sekitar[j]))+" "
 
 
 
