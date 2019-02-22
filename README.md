@@ -30,4 +30,4 @@ jika memungkinkan lindungi zone dengan platinum terbanyak
 
 Offensive Mode :
 Mengambil jalan terdekat ke base musuh
-Mengumpulkan pod untuk menyerang musuh
+Mengumpulkan pods terdekat untuk menyerang musuh
