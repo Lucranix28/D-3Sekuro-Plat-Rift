@@ -4,6 +4,22 @@ import math
 # Auto-generated code below aims at helping you parse
 # the standard input according to the problem statement.
 
+def jarak_terpendek (zone1, zone2) : # langkah yang harus diambil untuk mencapai zone 2 dari zone 1
+
+    a = zoneMap[zone1]
+    b = zoneMap[zone2]
+    c = []
+    if zone1 in zoneMap[zone2] :
+        return [zone2]
+    else :
+        way = [ [] for i in (len(b)) ]
+        for i in (len(b)) :
+            if b[i] == zone1 :
+                return way[i]
+            else :
+                way[i].extend(jarak_terpendek(zone1,b[i]))
+    return way
+
 # player_count: the amount of players (always 2)
 # my_id: my player ID (0 or 1)
 # zone_count: the amount of zones on the map
@@ -22,25 +38,11 @@ for i in range(link_count):
     zoneMap[zone_2].append(zone_1)
 
 # game loop
-mypod = [0 for i in range (zone_count)] # array berisi jumlah pod kita tiap zone
-mapped = [ False for i in range (zone_count)] # daerah yang pernah dilewati kita
-mapped_plat = [ 0 for i in range (zone_count)] # jumlah platinum bed pada tiap zone
-
-def jarak_terpendek (zone1, zone2) : # langkah yang harus diambil untuk mencapai zone 2 dari zone 1
-    a = zoneMap[zone1]
-    b = zoneMap[zone2]
-    c = []
-    if zone1 in zoneMap[zone2] :
-        return [zone1]
-    else :
-        way = [ [] for i in (len(b)) ]
-        for i in (len(b)) :
-            if b[i] = zone1 :
-                return way[i]
-            else :
-                way[i].extend(jarak_terpendek(zone1,b[i]))
-    return way
-
+mapped = [ False for i in range (zone_count+1)] # daerah yang pernah dilewati kita
+mapped_plat = [ 0 for i in range (zone_count+1)]
+mypod = [0 for i in range (zone_count+1)] # array berisi jumlah pod kita tiap zone
+enBase = str('A') # base musuh
+i = int(0) # indeks
 while True:
     my_platinum = int(input())  # your available Platinum
     for i in range(zone_count):
@@ -53,19 +55,47 @@ while True:
         z_id, owner_id, pods_p0, pods_p1, visible, platinum = [int(j) for j in input().split()]
         pod_p = 0
         if my_id==0 :
-            pod_p = pod_p0
+            pod_p = pods_p0
+            pod_en = pods_p1
         else :
-            pod_p = pod_p1
+            pod_p = pods_p1
+            pod_en = pods_p2
 
-        mypod[zone_count] = pod_p
+        mypod[i] = pod_p
+
         if pod_p > 0 :
             mapped[zone_count] = True
             mapped_plat[zone_count] = platinum
 
-    order = ""
-    for i in range (zone_count):
+    eksekusi =""
+    for i  in range (zone_count):
+        if pod_en != 0 and enBase == 'A':
+            enBase = int(zone_count)
+
+        unmapped = []
+        if mypod[i] > 0 :
+            sekitar = zoneMap[i]
+            for j in range(len(sekitar)) :
+                if (not mapped[sekitar[j]]) :
+                    unmapped.append(sekitar[j])
+
+                if len(unmapped) > 0 :
+                    for j in range (len(unmapped)) :
+                        if ( not(mapped[j]) and len(unmapped) >= 1 ) :
+                            if ( mypod[i] == 1):
+                                eksekusi += str(mypod[i])+" "+str(i)+" "+str(int(unmapped[j]))+" "
+                            else :
+                                eksekusi += str(mypod[i]//(len(unmapped)-1))+" "+str(i)+" "+str(unmapped[j])+" "
+                else :
+                    for j in range (len(sekitar)) :
+                        if ( not(mapped[j]) and len(sekitar) >= 1 ) :
+                            if ( mypod[i] == 1):
+                                eksekusi += str(mypod[i])+" "+str(i)+" "+str(int(sekitar[j]))+" "
+                            else :
+                                eksekusi += str(mypod[i]//(len(sekitar)-1))+" "+str(i)+" "+str(int(sekitar[j]))+" "
+
 
 
     # first line for movement commands, second line no longer used (see the protocol in the statement for details)
-    print("WAIT")
+    print(eksekusi)
     print("WAIT")
