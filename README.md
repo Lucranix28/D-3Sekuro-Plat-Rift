@@ -15,4 +15,19 @@ memiliki zone terbanyak setelah 250 turns
 
 ### Code akan berisi modul-modul :
 mengetahui zona-zona yang diketahui dan terhubung dan menyimpan informasi dalam array of array
-PODs akan menyebar dan berpindah ke semua arah dan prioritas untuk menemukan zone dengan platinum
+perhitungan jarak terdekat
+perhitungan jarak musuh
+penentu perubahan mode (exploring, defensive,offensive)
+
+
+####### Mode-mode :
+Exploring Mode :
+PODs akan menyebar dan berpindah ke semua arah dan prioritas untuk menemukan zone dengan platinum terbanyak
+
+Defensive Mode :
+Mendefend jalan yang memungkingkan musuh sampai ke Base
+jika memungkinkan lindungi zone dengan platinum terbanyak
+
+Offensive Mode :
+Mengambil jalan terdekat ke base musuh
+Mengumpulkan pod untuk menyerang musuh
