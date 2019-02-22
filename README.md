@@ -15,3 +15,4 @@ memiliki zone terbanyak setelah 250 turns
 
 ### Code akan berisi modul-modul :
 mengetahui zona-zona yang diketahui dan terhubung dan menyimpan informasi dalam array of array
+PODs akan menyebar dan berpindah ke semua arah dan prioritas untuk menemukan zone dengan platinum
