@@ -24,7 +24,8 @@ for i in range(link_count):
 # game loop
 mypod = [0 for i in range (zone_count)] # array berisi jumlah pod kita tiap zone
 while True:
-mapped = [ (False,0) for i in range (zone_count)] # daerah yang pernah dilewati kita
+mapped = [ False for i in range (zone_count)] # daerah yang pernah dilewati kita
+mapped_plat = [ 0 for i in range (zone_count)]
     my_platinum = int(input())  # your available Platinum
     for i in range(zone_count):
         # z_id: this zone's ID
@@ -39,10 +40,11 @@ mapped = [ (False,0) for i in range (zone_count)] # daerah yang pernah dilewati 
             pod_p = pod_p0
         else :
             pod_p = pod_p1
-        mypod[zone_count] = pod_p
-        mapped[zone_count] = (True,platinum)
 
-
+        if pod_p > 0 :
+            mypod[zone_count] = pod_p
+            mapped[zone_count] = True
+            mapped_plat[zone_count] = platinum
 
     # first line for movement commands, second line no longer used (see the protocol in the statement for details)
     print("WAIT")
