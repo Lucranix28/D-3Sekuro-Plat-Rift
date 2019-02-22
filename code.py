@@ -3,7 +3,7 @@ import math
 
 # Auto-generated code below aims at helping you parse
 # the standard input according to the problem statement.
- 
+
 # player_count: the amount of players (always 2)
 # my_id: my player ID (0 or 1)
 # zone_count: the amount of zones on the map
@@ -24,7 +24,24 @@ for i in range(link_count):
 # game loop
 mypod = [0 for i in range (zone_count)] # array berisi jumlah pod kita tiap zone
 mapped = [ False for i in range (zone_count)] # daerah yang pernah dilewati kita
-mapped_plat = [ 0 for i in range (zone_count)]
+mapped_plat = [ 0 for i in range (zone_count)] # jumlah platinum bed pada tiap zone
+
+def jarak_terpendek (zone1, zone2) : # langkah yang harus diambil untuk mencapai zone 2 dari zone 1
+    a = zoneMap[zone1]
+    b = zoneMap[zone2]
+    c = []
+    if zone1 in zoneMap[zone2] :
+        return zone1
+    else :
+
+        way = [ [] for i in (len(b)) ]
+        for i in (len(b)) :
+            if b[i] = zone1 :
+                return way[i]
+            else :
+                return way[i].extend(jarak_terpendek(zone1,b[i]))
+
+
 while True:
     my_platinum = int(input())  # your available Platinum
     for i in range(zone_count):
@@ -45,6 +62,9 @@ while True:
         if pod_p > 0 :
             mapped[zone_count] = True
             mapped_plat[zone_count] = platinum
+
+    order = ""
+    for i in range (zone_count):
 
 
     # first line for movement commands, second line no longer used (see the protocol in the statement for details)
