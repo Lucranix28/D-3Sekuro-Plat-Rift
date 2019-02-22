@@ -22,7 +22,9 @@ for i in range(link_count):
     zoneMap[zone_2].append(zone_1)
 
 # game loop
+mypod = [0 for i in range (zone_count)] # array berisi jumlah pod kita tiap zone
 while True:
+mapped = [ (False,0) for i in range (zone_count)] # daerah yang pernah dilewati kita
     my_platinum = int(input())  # your available Platinum
     for i in range(zone_count):
         # z_id: this zone's ID
@@ -32,9 +34,14 @@ while True:
         # visible: 1 if one of your units can see this tile, else 0
         # platinum: the amount of Platinum this zone can provide (0 if hidden by fog)
         z_id, owner_id, pods_p0, pods_p1, visible, platinum = [int(j) for j in input().split()]
+        pod_p = 0
+        if my_id==0 :
+            pod_p = pod_p0
+        else :
+            pod_p = pod_p1
+        mypod[zone_count] = pod_p
+        mapped[zone_count] = (True,platinum)
 
-    # Write an action using print
-    # To debug: print("Debug messages...", file=sys.stderr)
 
 
     # first line for movement commands, second line no longer used (see the protocol in the statement for details)
