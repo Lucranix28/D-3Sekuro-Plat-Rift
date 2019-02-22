@@ -31,16 +31,15 @@ def jarak_terpendek (zone1, zone2) : # langkah yang harus diambil untuk mencapai
     b = zoneMap[zone2]
     c = []
     if zone1 in zoneMap[zone2] :
-        return zone1
+        return [zone1]
     else :
-
         way = [ [] for i in (len(b)) ]
         for i in (len(b)) :
             if b[i] = zone1 :
                 return way[i]
             else :
-                return way[i].extend(jarak_terpendek(zone1,b[i]))
-
+                way[i].extend(jarak_terpendek(zone1,b[i]))
+    return way
 
 while True:
     my_platinum = int(input())  # your available Platinum
