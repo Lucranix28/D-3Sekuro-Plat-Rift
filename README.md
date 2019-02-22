@@ -12,7 +12,7 @@
 ```
 - Kondisi menang :
   1. menguasai base musuh
-  2. memiliki zone terbanyak setelah 250 turns`
+  2. memiliki zone terbanyak setelah 250 turn`
 ```
 
 ```
@@ -27,7 +27,7 @@
 
 -perhitungan jarak terdekat
 
--perhitungan jarak musuh
+-mengetahui daerah kemunculan musuh
 
 -penentu perubahan mode (exploring, defensive,offensive)
 ```
